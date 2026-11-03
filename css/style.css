@@ -222,3 +222,117 @@ h1 {
   font-size: 16px;
   font-weight: bold;
 }
+
+/* Dashboard */
+
+/* Viikonpäivävalitsin */
+.day-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.day-button {
+  background-color: #34413b;
+  color: #f3f4ef;
+  border: none;
+  border-radius: 20px;
+  padding: 18px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.day-button.active {
+  background-color: #a8d5ad;
+  color: #202824;
+}
+
+/* Ravintolahaku */
+.dashboard-search {
+  display: flex;
+  gap: 16px;
+  max-width: 800px;
+  margin-bottom: 24px;
+}
+
+.dashboard-search input {
+  flex: 1;
+  min-width: 0;
+  background-color: #34413b;
+  color: #f3f4ef;
+  border: none;
+  border-radius: 24px;
+  padding: 20px 30px;
+  font-size: 18px;
+}
+
+.dashboard-search input::placeholder {
+  color: #f3f4ef;
+}
+
+.dashboard-search button {
+  background-color: #a8d5ad;
+  color: #202824;
+  border: none;
+  border-radius: 24px;
+  padding: 20px 36px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Suosikit ja kartta */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+
+.dashboard-content h2 {
+  font-size: 26px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* Suosikkiravintolat */
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.favorites-grid .restaurant-card {
+  position: relative;
+}
+
+.favorite-star {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  color: #d8ad6a;
+  font-size: 28px;
+}
+
+/* Kartta */
+.map-placeholder {
+  background-color: #34413b;
+  border-radius: 24px;
+  min-height: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f3f4ef;
+}
+
+/* Pienemmät näytöt */
+@media (max-width: 900px) {
+  .dashboard-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .day-buttons {
+    flex-wrap: wrap;
+  }
+}

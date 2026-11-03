@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="site-name" href="index.html">Sivuston nimi</a>
+
+        <nav class="main-nav">
+          <a href="index.html">Ravintolat</a>
+          <a href="#favorites">Suosikit</a>
+          <span class="login-button">Oma profiili</span>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container dashbiard-main">
+      <!-- Viikonpäivien valinta -->
+      <div class="day-buttons">
+        <button class="day-button active" type="button">MA 2.</button>
+        <button class="day-button" type="button">TI 3.</button>
+        <button class="day-button" type="button">KE 4.</button>
+        <button class="day-button" type="button">TO 5.</button>
+        <button class="day-button" type="button">PE 6.</button>
+      </div>
+
+      <!-- Ravintolahaku -->
+      <div class="dashboard-search">
+        <input
+          type="search"
+          placeholder="Hae ravintolaa"
+          aria-label="Hae ravintolaa"
+        />
+        <button type="button">Hae</button>
+      </div>
+
+      <!-- Suosikit ja kartta -->
+      <div class="dashboard-content">
+        <section id="favorites">
+          <h2>Suosikkiravintolat &rarr;</h2>
+          <div class="favorites-grid">
+            <article class="restaurant-card">
+              <span class="favorite-star">&#9733;</span>
+              <h3>Ravintola A</h3>
+              <a href="menu.html">Päivän ruokalista &rarr;</a>
+              <a href="menu.html">Viikon ruokalista &rarr;</a>
+            </article>
+
+            <article class="restaurant-card">
+              <span class="favorite-star">&#9733;</span>
+              <h3>Ravintola B</h3>
+              <a href="menu.html">Päivän ruokalista &rarr;</a>
+              <a href="menu.html">Viikon ruokalista &rarr;</a>
+            </article>
+
+            <article class="restaurant-card">
+              <span class="favorite-star">&#9733;</span>
+              <h3>Ravintola C</h3>
+              <a href="menu.html">Päivän ruokalista &rarr;</a>
+              <a href="menu.html">Viikon ruokalista &rarr;</a>
+            </article>
+
+            <article class="restaurant-card">
+              <span class="favorite-star">&#9733;</span>
+              <h3>Ravintola D</h3>
+              <a href="menu.html">Päivän ruokalista &rarr;</a>
+              <a href="menu.html">Viikon ruokalista &rarr;</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="map-section">
+          <h2>Ravintolat kartalla</h2>
+          <div class="map-placeholder">Kartta toteutetaan ehkä myöhemmin</div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>Tietoa palvelusta</p>
+        <p>Käyttöehdot</p>
+      </div>
+    </footer>
+  </body>
+</html>
