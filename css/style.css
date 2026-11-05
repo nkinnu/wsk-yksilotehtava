@@ -58,10 +58,6 @@ body {
   border-radius: 20px;
 }
 
-main {
-  padding-top: 36px;
-}
-
 main.container {
   flex: 1;
   padding-top: 28px;
@@ -338,9 +334,6 @@ h1 {
 }
 
 /* Ruokalistasivu */
-.menu-main {
-  padding-top: 36px;
-}
 
 .menu-content {
   max-width: 800px;
