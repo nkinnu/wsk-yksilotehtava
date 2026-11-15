@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruokalistat</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/menu.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -25,29 +26,16 @@
           &larr; Takaisin ravintoloihin
         </a>
 
-        <h1>Ravintola X</h1>
+        <h1 id="restaurant-name">Ravintola X</h1>
 
         <div class="menu-tabs">
-          <a class="menu-tab active" href="menu.html"> Päivän ruokalista </a>
-          <a class="menu-tab" href="coming-soon.html"> Viikon ruokalista </a>
+          <a id="daily-tab" class="menu-tab" href="#">Päivän ruokalista</a>
+          <a id="weekly-tab" class="menu-tab" href="#">Viikon ruokalista</a>
         </div>
 
         <section class="menu-card">
-          <h2>Maanantai 2.11.2026</h2>
-          <div class="dish">
-            <h3>Kasvislasagne</h3>
-            <p>Kasvisruoka</p>
-          </div>
-
-          <div class="dish">
-            <h3>Broileripata</h3>
-            <p>Lounasvaihtoehto</p>
-          </div>
-
-          <div class="dish">
-            <h3>Päivän keitto</h3>
-            <p>Keittolounas</p>
-          </div>
+          <h2 id="menu-title">Päivän ruokalista</h2>
+          <div id="menu-dishes"></div>
         </section>
       </div>
     </main>
