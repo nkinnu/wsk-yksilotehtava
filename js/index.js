@@ -10,19 +10,39 @@ async function getRestaurants() {
     }
 
     const restaurants = await response.json();
-    console.log(restaurants);
+
+    restaurants.sort((a, b) => {
+      return a.name.localeCompare(b.name, 'fi');
+    });
 
     // Show the first 4 restaurants
     showRestaurants(restaurants, 4);
 
-    // Show all restaurants in a dialog
-    showRestaurantDialog(restaurants);
+    // Add cities to the select menu
+    fillCities(restaurants);
 
     const showAllButton = document.querySelector('#show-all-button');
     const restaurantDialog = document.querySelector('#restaurant-dialog');
+    const dialogTitle = document.querySelector('#dialog-title');
+    const searchForm = document.querySelector('.search-form');
 
-    // Open the dialog when the button is clicked
+    // Open the dialog with all restaurants
     showAllButton.addEventListener('click', () => {
+      dialogTitle.textContent = `Kaikki ravintolat (${restaurants.length})`;
+
+      showRestaurantDialog(restaurants);
+      restaurantDialog.showModal();
+    });
+
+    // Search restaurants by name and city
+    searchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const results = filterRestaurants(restaurants);
+
+      dialogTitle.textContent = `Hakutulokset (${results.length})`;
+
+      showRestaurantDialog(results);
       restaurantDialog.showModal();
     });
   } catch (error) {
@@ -64,10 +84,69 @@ function showRestaurants(restaurants, limit) {
   }
 }
 
+function fillCities(restaurants) {
+  const citySelect = document.querySelector('#city');
+  const cities = [];
+
+  // Collect unique cities from the restaurants
+  for (let i = 0; i < restaurants.length; i++) {
+    const city = restaurants[i].city;
+    if (city && !cities.includes(city)) {
+      cities.push(city);
+    }
+  }
+
+  // Sort the cities alphabetically
+  cities.sort();
+
+  // Add cities to search element
+  for (let i = 0; i < cities.length; i++) {
+    const option = document.createElement('option');
+    option.value = cities[i];
+    option.textContent = cities[i];
+    citySelect.append(option);
+  }
+}
+
+// Filter the list of restaurants based on the search text and selected city
+function filterRestaurants(restaurants) {
+  const searchText = document
+    .querySelector('#restaurant-search')
+    .value.trim()
+    .toLowerCase();
+
+  const selectedCity = document.querySelector('#city').value;
+
+  const filteredRestaurants = [];
+
+  // Loop through the restaurants and check if they match the search text and selected city
+  for (let i = 0; i < restaurants.length; i++) {
+    const restaurant = restaurants[i];
+
+    const nameMatch = restaurant.name.toLowerCase().includes(searchText);
+
+    const cityMatch = selectedCity === '' || restaurant.city === selectedCity;
+
+    if (nameMatch && cityMatch) {
+      filteredRestaurants.push(restaurant);
+    }
+  }
+
+  return filteredRestaurants;
+}
+
 // Display the list of restaurants in a dialog on the index page
 function showRestaurantDialog(restaurants) {
   const restaurantList = document.querySelector('#all-restaurants-list');
   restaurantList.innerHTML = '';
+
+  if (restaurants.length === 0) {
+    const message = document.createElement('p');
+    message.textContent = 'Ei hakutuloksia.';
+    restaurantList.append(message);
+
+    return;
+  }
 
   // Loop through the restaurants and create elements for each restaurant
   for (let i = 0; i < restaurants.length; i++) {
