@@ -14,9 +14,6 @@ const params = new URLSearchParams(window.location.search);
 const restaurantId = params.get('id');
 const view = params.get('view');
 
-console.log('Ravintolan ID: ', restaurantId);
-console.log('Ruokalistan tyyppi: ', view);
-
 // Fetch the restaurant details based on the restaurant ID
 async function getRestaurant() {
   try {
@@ -27,7 +24,6 @@ async function getRestaurant() {
     }
 
     const restaurant = await response.json();
-    console.log(restaurant);
 
     const restaurantName = document.querySelector('#restaurant-name');
     restaurantName.textContent = restaurant.name;
@@ -57,7 +53,6 @@ async function getMenu() {
     }
 
     const menu = await response.json();
-    console.log(menu);
 
     const menuTitle = document.querySelector('#menu-title');
 

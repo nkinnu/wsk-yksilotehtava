@@ -36,7 +36,13 @@ async function register(event) {
     registerMessage.classList.add('success');
     registerMessage.textContent = 'Rekisteröinti onnistui!';
   } catch (error) {
-    registerMessage.textContent = error.message;
+    // Show a message if email activation fails
+    if (error.message.includes('535 Authentication failed')) {
+      registerMessage.textContent =
+        'Käyttäjätili saattoi syntyä. Kokeile kirjautumista.';
+    } else {
+      registerMessage.textContent = error.message;
+    }
   }
 }
 
