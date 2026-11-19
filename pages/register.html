@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekisteröidy | Opiskelijaravintolat</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/register.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="site-name" href="../index.html">Sivuston nimi</a>
+        <nav class="main-nav">
+          <a href="../index.html">Ravintolat</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="auth-section">
+        <h1>Rekisteröidy</h1>
+
+        <form id="register-form" class="auth-form">
+          <label for="username">Käyttäjätunnus</label>
+          <input type="text" id="username" name="username" required />
+
+          <label for="email">Sähköposti</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="password">Salasana</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit">Rekisteröidy</button>
+          <p id="register-message" role="alert"></p>
+        </form>
+
+        <p>Onko sinulla jo tunnus?</p>
+        <a href="login.html">Kirjaudu sisään</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>Tietoa palvelusta</p>
+        <p>Käyttöehdot</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,5 +1,13 @@
 const apiUrl = 'https://media2.edu.metropolia.fi/restaurant/api/v1';
 
+const accountLink = document.querySelector('.login-button');
+
+// Update navigation if the user is logged in
+if (sessionStorage.getItem('token')) {
+  accountLink.textContent = 'Oma sivu';
+  accountLink.href = 'dashboard.html';
+}
+
 // Get the restaurant ID and view type from the URL parameters
 const params = new URLSearchParams(window.location.search);
 

@@ -58,6 +58,15 @@ body {
   border-radius: 20px;
 }
 
+.main-nav button.login-button {
+  color: #f3f4ef;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
 main.container {
   flex: 1;
   padding-top: 28px;
@@ -252,7 +261,8 @@ h1 {
   margin-bottom: 24px;
 }
 
-.dashboard-search input {
+.dashboard-search input,
+.dashboard-search select {
   flex: 1;
   min-width: 0;
   background-color: #34413b;
@@ -308,6 +318,20 @@ h1 {
   right: 18px;
   color: #d8ad6a;
   font-size: 28px;
+}
+
+.favorite-selection {
+  margin: 40px 0 24px;
+}
+
+.favorite-selection h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.favorite-selection p {
+  color: #c8d0ca;
+  font-size: 18px;
 }
 
 /* Kartta */
@@ -524,4 +548,79 @@ h1 {
   #all-restaurants-list {
     grid-template-columns: 1fr;
   }
+}
+
+/* Login & register */
+.auth-section {
+  max-width: 440px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.auth-section h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px;
+  background-color: #34413b;
+  border-radius: 24px;
+  text-align: left;
+}
+
+.auth-form label {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 16px;
+  background-color: #202824;
+  color: #f3f4ef;
+  border: 1px solid #46524b;
+  border-radius: 16px;
+  font-size: 17px;
+}
+
+.auth-form button {
+  padding: 16px;
+  margin-top: 12px;
+  background-color: #a8d5ad;
+  color: #202824;
+  border: none;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-form input:focus-visible,
+.auth-form button:focus-visible {
+  outline: 2px solid #a8d5ad;
+  outline-offset: 3px;
+}
+
+.auth-section a {
+  color: #a8d5ad;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-section a:hover {
+  text-decoration: underline;
+}
+
+#login-message,
+#register-message {
+  margin: 0;
+  color: #ffb4b4;
+}
+
+#register-message.success {
+  color: #a8d5ad;
 }

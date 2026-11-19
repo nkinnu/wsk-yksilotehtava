@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oma profiili | Opiskelijaravintolat</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/profile.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="site-name" href="../index.html">Sivuston nimi</a>
+
+        <nav class="main-nav">
+          <a href="../index.html">Ravintolat</a>
+          <a class="login-button" href="dashboard.html">Oma sivu</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="auth-section">
+        <h1>Oma profiili</h1>
+
+        <!-- Profile information form -->
+        <form id="profile-form" class="auth-form">
+          <label for="username">Käyttäjätunnus</label>
+          <input type="text" id="username" name="username" required />
+
+          <label for="email">Sähköposti</label>
+          <input type="email" id="email" name="email" required />
+
+          <button type="submit">Tallenna muutokset</button>
+          <p id="profile-message" role="status"></p>
+        </form>
+
+        <a href="dashboard.html">Takaisin omalle sivulle</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>Tietoa palvelusta</p>
+        <p>Käyttöehdot</p>
+      </div>
+    </footer>
+  </body>
+</html>
