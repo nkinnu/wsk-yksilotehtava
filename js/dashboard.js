@@ -5,6 +5,7 @@ const favoriteForm = document.querySelector('#favorite-form');
 const favoriteSelect = document.querySelector('#favorite-select');
 const favoriteGrid = document.querySelector('.favorites-grid');
 const favoriteMessage = document.querySelector('#favorite-message');
+const dailyMenuPreview = document.querySelector('#daily-menu-preview');
 
 let restaurants = [];
 
@@ -84,6 +85,8 @@ function showFavorite(restaurant) {
 
   if (!restaurant) {
     favoriteGrid.textContent = 'Et ole vielä valinnut suosikkiravintolaa.';
+    dailyMenuPreview.textContent =
+      'Valitse suosikkiravintolasi nähdäksesi päivän ruokalistan.';
     return;
   }
 
@@ -109,6 +112,51 @@ function showFavorite(restaurant) {
 
   card.append(name, address, dailyLink, weeklyLink);
   favoriteGrid.append(card);
+
+  // Load the selected favorite restaurant's daily menu
+  getDailyMenu(restaurant._id);
+}
+
+// Fatch and display the favorite restaurants daily menu
+async function getDailyMenu(restaurantId) {
+  dailyMenuPreview.textContent = 'Ladataan päivän ruokalistaa...';
+
+  try {
+    // Fetch the daily menu from the API
+    const response = await fetch(
+      `${apiUrl}/restaurants/daily/${restaurantId}/fi`
+    );
+
+    if (!response.ok) {
+      throw new Error('Päivän ruokalistaa ei ole saatavilla.');
+    }
+
+    const menu = await response.json();
+    dailyMenuPreview.innerHTML = '';
+
+    // Check if the menu has items
+    if (!menu.courses || menu.courses.length === 0) {
+      dailyMenuPreview.textContent = 'Ruokalistaa ei ole saatavilla.';
+      return;
+    }
+
+    // Display the first three courses
+    for (const course of menu.courses.slice(0, 3)) {
+      const dish = document.createElement('div');
+      dish.classList.add('dish');
+
+      const name = document.createElement('h3');
+      name.textContent = course.name;
+
+      const price = document.createElement('p');
+      price.textContent = course.price || '';
+
+      dish.append(name, price);
+      dailyMenuPreview.append(dish);
+    }
+  } catch (error) {
+    dailyMenuPreview.textContent = error.message;
+  }
 }
 
 // Save the selected favorite restaurant

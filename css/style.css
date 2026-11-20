@@ -292,7 +292,7 @@ h1 {
 .dashboard-content {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
+  gap: 32px;
 }
 
 .dashboard-content h2 {
@@ -304,7 +304,7 @@ h1 {
 /* Suosikkiravintolat */
 .favorites-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
@@ -343,6 +343,23 @@ h1 {
   justify-content: center;
   align-items: center;
   color: #f3f4ef;
+}
+
+/* Daily menu preview */
+.daily-menu-preview {
+  background-color: #34413b;
+  border-radius: 24px;
+  padding: 24px;
+  min-height: 250px;
+}
+
+.daily-menu-preview .dish:first-child {
+  margin-top: 0;
+}
+
+.daily-menu-preview .dish + .dish {
+  border-top: 1px solid #46524b;
+  padding-top: 16px;
 }
 
 /* Pienemmät näytöt */
@@ -622,5 +639,52 @@ h1 {
 }
 
 #register-message.success {
+  color: #a8d5ad;
+}
+
+/* Button hover and click effects */
+
+button,
+.main-nav .login-button,
+.menu-tab {
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+/* Light green buttons */
+.search-row button:hover,
+.dashboard-search button:hover,
+.auth-form button:hover,
+.dialog-header button:hover {
+  background-color: #bee7c1;
+}
+
+/* Dark green buttons */
+.show-all button:hover,
+.main-nav .login-button:hover,
+.menu-tab:not(.active):hover {
+  background-color: #43564b;
+}
+
+/* Button press effect */
+button:active,
+.main-nav .login-button:active,
+.menu-tab:active {
+  transform: translateY(2px);
+}
+
+/* Keyboard focus */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #a8d5ad;
+  outline-offset: 3px;
+}
+
+/* Navigation link hover */
+.main-nav a:not(.login-button):hover,
+.site-name:hover {
   color: #a8d5ad;
 }
